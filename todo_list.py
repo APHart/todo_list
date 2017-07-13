@@ -11,11 +11,17 @@ You can run the script in your Terminal at any time using the command:
 
 def add_to_list(my_list):
     """Takes user input and adds it as a new item to the end of the list."""
+    print "Here are the current items in your todo list:"
+
+    
 
     user_item = raw_input("What would you like to add to the list? ")
     user_item = user_item.capitalize()
+    user_item_index = raw_input("What number would you like this item to be in your list? ")
+    user_item_index = int(user_item_index)
 
-    my_list.append(user_item)
+
+    my_list.insert(user_item_index, user_item)
 
     print "{} has been added to your todo list.".format(user_item)
 
@@ -23,8 +29,8 @@ def add_to_list(my_list):
 def view_list(my_list):
     """Print each item in the list."""
 
-    for chicken in my_list:
-        print chicken
+    for index in range(len(my_list)):
+        print "{}. {}".format(index,my_list[index])
 
 
 def delete_item(my_list):
@@ -71,7 +77,7 @@ def display_main_menu(my_list):
 
 #-------------------------------------------------
 
-my_list = []
-display_main_menu(my_list)
+karas_list = []
+display_main_menu(karas_list)
 
 
