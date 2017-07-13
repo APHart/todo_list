@@ -27,6 +27,22 @@ def view_list(my_list):
         print chicken
 
 
+def delete_item(my_list):
+    """Deletes an item from the list per user input."""
+
+    print "Here are the current items in your todo list:"
+
+    for index in range(len(my_list)):
+        print "{}. {}".format(index,my_list[index])
+
+    user_delete = raw_input("Enter the item number which you would like to delete: ")
+    user_delete = int(user_delete)
+
+    print "{} has been deleted from the todo list.".format(my_list[user_delete])
+
+    my_list.pop(user_delete)
+
+
 def display_main_menu(my_list):
     """Displays main options, takes in user input, and calls view or add function."""
     playing = True
@@ -35,7 +51,8 @@ def display_main_menu(my_list):
     \nWould you like to:
     A. Add a new item
     B. View list
-    C. Quit the program
+    C. Delete an item
+    D. Quit the program
     """
   
     while playing:
@@ -45,6 +62,8 @@ def display_main_menu(my_list):
             add_to_list(my_list)
         elif user_choice == "B":
             view_list(my_list)
+        elif user_choice == "C":
+            delete_item(my_list)
         else:
             playing = False
         # Collect input and include your if/elif/else statements here.
